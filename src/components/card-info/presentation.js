@@ -4,7 +4,7 @@ function Presentation() {
       <div className="grid gap-20">
         <h1 className="text-2xl font-thin">OSCAR LEYVA</h1>
         <p className="text-base w-[55%] font-thin">
-          I'm a product architect who combines artistry with functionality to
+          I am a product architect who combines artistry with functionality to
           create captivating experiences.
         </p>
       </div>
