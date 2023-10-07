@@ -1,0 +1,95 @@
+/* components */
+
+ .principal-img:hover {
+     filter: drop-shadow(-13px -5px 88px var(--img-filter-hover)) invert(0%);
+ }
+
+ @media (width < 43em) {
+     .zero-width {
+         width: 0px;
+     }
+ }
+
+ @media (width < 33em) {
+     .zero-width {
+         width: 45%;
+     }
+ }
+
+ @media (width < 23em) {
+     .zero-width {
+         width: 0;
+     }
+ }
+
+ /* Grid behavior */
+ 
+ .main-grid {
+     min-height: 100vh;
+     display: grid;
+     gap: 1rem;
+     grid-auto-columns: 1fr;
+     grid-template-areas:
+         "one"
+         "two"
+         "three"
+         "four"
+         "five"
+         "six"
+         "seven"
+         "eight"
+         "nine";
+     margin-inline: auto;
+     padding: 1.5rem;
+ }
+
+ .main-grid, article {
+     font-size: var(--fs-400);
+     border-radius: 0.4rem;
+ }
+
+ @media screen and (min-width: 33em) {
+     .main-grid {
+         grid-template-areas:
+             "one one"
+             "two two"
+             "five three"
+             "four four"
+             "six six"
+             "seven seven"
+             "eight eight"
+             "nine nine";
+     }
+ }
+
+ @media screen and (min-width: 38em) {
+     .main-grid {
+         grid-template-areas:
+             "one three"
+             "two two"
+             "five six"
+             "four four"
+             "seven eight"
+             "nine nine";
+     }
+ }
+
+ @media screen and (min-width: 54em) {
+     .main-grid {
+         grid-template-areas:
+             "one two two"
+             "four four five"
+             "three three six"
+             "seven seven eight"
+             "nine nine nine";
+     }
+ }
+
+ @media screen and (min-width: 75em) {
+     .main-grid {
+         grid-template-areas:
+             "one two three"
+             "four five six"
+             "seven eight nine";
+     }
+ }
