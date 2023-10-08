@@ -2,7 +2,7 @@
 import Image from "next/image";
 // import Me from "../../../public/me7.jpg";
 
-const Biography = () => {
+const Biography = ({ profession, capabilities }) => {
   return (
     <section
       className="principal-img flex justify-between gap-4 flex-col h-full p-4 cursor-pointer"
@@ -18,15 +18,12 @@ const Biography = () => {
           quality={100}
           priority={false}
           className="rounded-md w-full"
+          unoptimized
         />
       </div>
       <div className="flex flex-col gap-0">
-        <p className="text-base font-thin">
-          Graduate in Architecture and Design
-        </p>
-        <p className="text-base font-thin text-subtitle">
-          Looking for full-time job opportunities
-        </p>
+        <p className="text-base font-thin">{profession}</p>
+        <p className="text-base font-thin text-subtitle">{capabilities}</p>
       </div>
     </section>
   );

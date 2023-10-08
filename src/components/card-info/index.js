@@ -1,3 +1,5 @@
+import { db } from "@/lib/kysely";
+
 import Biography from "./biography";
 import Contents from "./contents";
 import Footer from "./footer";
@@ -10,14 +12,23 @@ import Writing from "./writing";
 
 import "./card.css";
 
-const Home = () => {
+async function Home() {
+  const [user] = await db
+    .selectFrom("users")
+    .innerJoin("presentation", "users.presentation_id", "presentation.id")
+    .selectAll()
+    .execute();
+
   return (
     <main className="main-grid">
       <article className="[grid-area:one] section">
-        <Presentation />
+        <Presentation user={user} />
       </article>
       <article className="[grid-area:two] section bg-card-secondary hover:bg-card-secondary-hover">
-        <Biography />
+        <Biography
+          profession={user.profession}
+          capabilities={user.capabilities}
+        />
       </article>
       <article className="[grid-area:three] section">
         <Interests />
@@ -42,6 +53,6 @@ const Home = () => {
       </article>
     </main>
   );
-};
+}
 
 export default Home;
