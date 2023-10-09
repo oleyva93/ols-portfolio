@@ -8,7 +8,8 @@ const Footer = () => {
         <div className="flex gap-10 text-right">
           <div className="flex flex-col gap-1 w-full">
             <div className="grid gap-1">
-              © 2023. Handcrafted by Ggsm. Auto Light/Dark ✦
+              © {new Date().getFullYear()}. Handcrafted by oleyva. Auto
+              Light/Dark ✦
             </div>
           </div>
         </div>

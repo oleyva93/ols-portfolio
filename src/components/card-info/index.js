@@ -1,4 +1,5 @@
 import { db } from "@/lib/kysely";
+import { jsonObjectFrom, jsonArrayFrom } from "kysely/helpers/postgres";
 
 import Biography from "./biography";
 import Contents from "./contents";
@@ -15,9 +16,26 @@ import "./card.css";
 async function Home() {
   const [user] = await db
     .selectFrom("users")
-    .innerJoin("presentation", "users.presentation_id", "presentation.id")
+    .select((eb) => [
+      "id",
+      jsonObjectFrom(
+        eb
+          .selectFrom("presentation")
+          .whereRef("presentation.id", "=", "users.presentation_id")
+          .selectAll()
+      ).as("presentation"),
+      jsonArrayFrom(
+        eb
+          .selectFrom("user_interest")
+          .innerJoin("interest", "user_interest.interest_id", "interest.id")
+          .whereRef("user_interest.user_id", "=", "users.id")
+          .select(["interest.id", "interest.name"])
+      ).as("interests"),
+    ])
     .selectAll()
     .execute();
+
+  console.log(user);
 
   return (
     <main className="main-grid">
@@ -26,12 +44,13 @@ async function Home() {
       </article>
       <article className="[grid-area:two] section bg-card-secondary hover:bg-card-secondary-hover">
         <Biography
-          profession={user.profession}
-          capabilities={user.capabilities}
+          image={user.image}
+          profession={user.presentation.profession}
+          looking_for={user.presentation.looking_for}
         />
       </article>
       <article className="[grid-area:three] section">
-        <Interests />
+        <Interests interests={user.interests} />
       </article>
       <article className="[grid-area:four] section bg-card-secondary hover:bg-card-secondary-hover">
         <Photography />

@@ -1,15 +1,16 @@
-const Interests = () => (
+const Interests = ({ interests }) => (
   <section className="flex h-full p-4">
     <div className="w-[50%] zero-width"></div>
     <div className="flex justify-between gap-4 flex-col h-full !w-[50%]">
       <div className="grid gap-3">
         <h3 className="text-lg font-thin text-subtitle">Interests</h3>
-        <div>
-          <p className="text-base font-thin">Architecture</p>
-          <p className="text-base font-thin">Photography</p>
-          <p className="text-base font-thin">Content Creation</p>
-          <p className="text-base font-thin">Video Production</p>
-        </div>
+        <ul>
+          {interests.map((interest) => (
+            <li key={interest?.id} className="text-base font-thin">
+              {interest.name}
+            </li>
+          ))}
+        </ul>
       </div>
 
       <div className="flex gap-10">

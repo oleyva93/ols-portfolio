@@ -14,7 +14,7 @@ export const metadata = {
     description: "I'm a Full-Stack developer",
     type: "website",
     locale: "en_IE",
-    url: "https://oscarleyva.vercel.app/",
+    url: "https://ols-portfolio.vercel.app/",
     images: [
       {
         url: "/api/me",
