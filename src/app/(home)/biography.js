@@ -1,6 +1,6 @@
 "use client";
+import AnimatedLink from "@/components/animation-link";
 import Image from "next/image";
-import AnimatedLink from "../animation-link";
 
 const Biography = ({ image, profession, looking_for }) => {
   return (

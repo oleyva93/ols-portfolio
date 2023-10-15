@@ -10,7 +10,7 @@ import Projects from "./projects";
 import Reading from "./reading";
 import Writing from "./writing";
 
-import "./card.css";
+import "./home.css";
 
 async function Home() {
   const [user] = await getUserInfo();
@@ -45,9 +45,9 @@ async function Home() {
       <article className="[grid-area:eight] section bg-card-secondary hover:bg-card-secondary-hover">
         <Writing />
       </article>
-      <article className="[grid-area:nine] section">
+      <footer className="[grid-area:nine] section">
         <Footer />
-      </article>
+      </footer>
     </main>
   );
 }

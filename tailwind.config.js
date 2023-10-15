@@ -12,11 +12,11 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-    },
-    colors: {
-      "card-secondary": "hsl(var(--bg-basic-secondary))",
-      "card-secondary-hover": "hsl(var(--bg-basic-secondary-hover))",
-      subtitle: "hsl(var(--clr-text-200))",
+      colors: {
+        "card-secondary": "hsl(var(--bg-basic-secondary))",
+        "card-secondary-hover": "hsl(var(--bg-basic-secondary-hover))",
+        subtitle: "hsl(var(--clr-text-200))",
+      },
     },
   },
   plugins: [],
