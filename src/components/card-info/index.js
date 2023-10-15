@@ -1,5 +1,4 @@
-import { db } from "@/lib/kysely";
-import { jsonObjectFrom, jsonArrayFrom } from "kysely/helpers/postgres";
+import { getUserInfo } from "@/lib/queries";
 
 import Biography from "./biography";
 import Contents from "./contents";
@@ -14,28 +13,7 @@ import Writing from "./writing";
 import "./card.css";
 
 async function Home() {
-  const [user] = await db
-    .selectFrom("users")
-    .select((eb) => [
-      "id",
-      jsonObjectFrom(
-        eb
-          .selectFrom("presentation")
-          .whereRef("presentation.id", "=", "users.presentation_id")
-          .selectAll()
-      ).as("presentation"),
-      jsonArrayFrom(
-        eb
-          .selectFrom("user_interest")
-          .innerJoin("interest", "user_interest.interest_id", "interest.id")
-          .whereRef("user_interest.user_id", "=", "users.id")
-          .select(["interest.id", "interest.name"])
-      ).as("interests"),
-    ])
-    .selectAll()
-    .execute();
-
-  console.log(user);
+  const [user] = await getUserInfo();
 
   return (
     <main className="main-grid">
