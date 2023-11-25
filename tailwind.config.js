@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        sxl: "1250px",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -16,6 +19,7 @@ module.exports = {
         "card-secondary": "hsl(var(--bg-basic-secondary))",
         "card-secondary-hover": "hsl(var(--bg-basic-secondary-hover))",
         subtitle: "hsl(var(--clr-text-200))",
+        tags: "var(--clr-neutral-400)",
       },
     },
   },
