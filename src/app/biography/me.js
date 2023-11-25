@@ -6,7 +6,7 @@ const Me = ({ image }) => {
       <div className="md:flex">
         <div className="md:shrink-0">
           <Image
-            className="h-60 w-full object-cover md:h-full md:w-80"
+            className="h-60 w-full object-cover md:h-full md:w-80 gallery"
             src={image}
             width={450}
             height={450}
